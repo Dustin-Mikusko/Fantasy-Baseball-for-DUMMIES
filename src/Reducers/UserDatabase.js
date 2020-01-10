@@ -1,6 +1,6 @@
 export const userDatabase = ( state = [], action ) => {
   switch(action.type) {
-    case ('RETRIEVE_USERS'):
+    case ('SET_USERS'):
       return [...action.users]
 
     default:
