@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './SignUp.css';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { setUsers } from '../../Actions';
+import { setUsers, setCurrentUser } from '../../Actions';
 
 export class SignUp extends Component {
   constructor() {
@@ -35,7 +35,7 @@ export class SignUp extends Component {
     await this.checkExistingEmails();
     await this.checkPasswordMatch();
     await this.checkPasswordLength();
-    if (!this.state.passwordError && this.checkForError()) {
+    if (!this.state.passwordError && this.checkForError() && !this.state.emailError) {
       const userName = this.state.userName.charAt(0).toUpperCase() + this.state.userName.substring(1);
       const user = {
         name: userName,
@@ -54,6 +54,7 @@ export class SignUp extends Component {
     users.push(user);
     localStorage.setItem("users", JSON.stringify(users));
     this.props.setUsers(users);
+    this.props.setCurrentUser(user);
   }
 
   checkInputs = () => {
@@ -162,7 +163,8 @@ export class SignUp extends Component {
 };
 
 export const mapDispatchToProps = dispatch => ({
-  setUsers: users => dispatch( setUsers(users) )
+  setUsers: users => dispatch( setUsers(users) ),
+  setCurrentUser: user => dispatch( setCurrentUser(user) )
 })
 
 export default connect(null, mapDispatchToProps)(SignUp);
