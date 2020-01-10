@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Dummy";
-  src: url('../src/fonts/Dummies_.ttf')
+  src: url('../../fonts/Dummies_.ttf')
 }
 
 .App {
