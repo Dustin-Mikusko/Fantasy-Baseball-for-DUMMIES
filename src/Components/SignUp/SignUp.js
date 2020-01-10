@@ -17,6 +17,23 @@ export class SignUp extends Component {
       errorMessage: '',
 
     }
+  };
+
+  handleChange = e => {
+    this.setState({ [e.target.name]: e.target.value })
+  }
+
+  checkInputs = () => {
+    const inputErrorState = {...this.state.inputError};
+    Object.keys(inputErrorState).forEach(key => {
+      if (!this.state[key]) {
+        inputErrorState[key] = 'error';
+        this.setState({ inputError: inputErrorState})
+      } else {
+        inputErrorState[key] = '';
+        this.setState({ inputError: inputErrorState })
+      }
+    });
   }
 
   render() {
@@ -32,6 +49,8 @@ export class SignUp extends Component {
           name='email'
           type='text' 
           placeholder='Email...'
+          onChange={this.handleChange}
+          value={this.state.email}
         />
         <label htmlFor='password'>Password:</label><br />
         <input 
@@ -40,6 +59,8 @@ export class SignUp extends Component {
           name='password'
           type="password" 
           placeholder='At least 6 characters...'
+          onChange={this.handleChange}
+          value={this.state.password}
         />
         <label htmlFor='verify-password'>Verify Password:</label><br />
         <input 
@@ -48,8 +69,10 @@ export class SignUp extends Component {
           name='verify-password'
           type="password" 
           placeholder='At least 6 characters...'
+          onChange={this.handleChange}
+          value={this.state.verifyPassword}
         />
-        <button type='button'>Sign Up</button>
+        <button type='button' onClick={this.checkInputs}>Sign Up</button>
       </form>
     )
   }
