@@ -64,7 +64,7 @@ describe('apiCalls', () => {
     it('should call fetch with the correct URL and options', () => {
       fetchSingleName('altuve');
 
-      expect(window.fetch).toHaveBeenCalledWith("http://lookup-service-prod.mlb.com/json/named.search_player_all.bam?sport_code='mlb'&active_sw='Y'&name_part='altuve%25'", mockOptions);
+      expect(window.fetch).toHaveBeenCalledWith("https://mlb-data.p.rapidapi.com/json/named.search_player_all.bam?sport_code='mlb'&active_sw='Y'&name_part='altuve%25'", mockOptions);
     });
     
     it('should return a player object', () => {
@@ -142,7 +142,7 @@ describe('apiCalls', () => {
     it('should call fetch with the correct URL and options', () => {
       fetchFullName('jose altuve', mockOptions);
 
-      expect(window.fetch).toHaveBeenCalledWith("http://lookup-service-prod.mlb.com/json/named.search_player_all.bam?sport_code='mlb'&active_sw='Y'&name_part='jose altuve'", mockOptions)
+      expect(window.fetch).toHaveBeenCalledWith("https://mlb-data.p.rapidapi.com/json/named.search_player_all.bam?sport_code='mlb'&active_sw='Y'&name_part='jose altuve'", mockOptions)
     });
 
     it('should return a player object', () => {
@@ -200,7 +200,7 @@ describe('apiCalls', () => {
     it('should call fetch with the correct URL and options', () => {
       fetchSeasonHittingStats('2017', '493316');
 
-      expect(window.fetch).toHaveBeenCalledWith("http://lookup-service-prod.mlb.com/json/named.sport_hitting_tm.bam?league_list_id='mlb'&game_type='R'&season='2017'&player_id='493316'", mockOptions);
+      expect(window.fetch).toHaveBeenCalledWith("https://mlb-data.p.rapidapi.com/json/named.sport_hitting_tm.bam?league_list_id='mlb'&game_type='R'&season='2017'&player_id='493316'", mockOptions);
     });
 
     it('should return player stats object', () => {
@@ -254,7 +254,7 @@ describe('apiCalls', () => {
     it('should call fetch with the correct URL and options', () => {
       fetchSeasonPitchingStats('2017', '592789');
 
-      expect(window.fetch).toHaveBeenCalledWith("http://lookup-service-prod.mlb.com/json/named.sport_pitching_tm.bam?league_list_id='mlb'&game_type='R'&season='2017'&player_id='592789'", mockOptions);
+      expect(window.fetch).toHaveBeenCalledWith("https://mlb-data.p.rapidapi.com/json/named.sport_pitching_tm.bam?league_list_id='mlb'&game_type='R'&season='2017'&player_id='592789'", mockOptions);
     });
 
     it('should return player stats object', () => {
@@ -323,7 +323,7 @@ describe('apiCalls', () => {
     it('should call fetch with the correct URL and options', () => {
       fetchTop25('2019', 'hr');
 
-      expect(window.fetch).toHaveBeenCalledWith("http://lookup-service-prod.mlb.com/json/named.leader_hitting_repeater.bam?sport_code='mlb'&results=25&game_type='R'&season='2019'&sort_column='hr'&leader_hitting_repeater.col_in=hr&leader_hitting_repeater.col_in=player_id&leader_hitting_repeater.col_in=name_display_first_last&leader_hitting_repeater.col_in=team_name", mockOptions);
+      expect(window.fetch).toHaveBeenCalledWith("https://mlb-data.p.rapidapi.com/json/named.leader_hitting_repeater.bam?sport_code='mlb'&results=25&game_type='R'&season='2019'&sort_column='hr'&leader_hitting_repeater.col_in=hr&leader_hitting_repeater.col_in=player_id&leader_hitting_repeater.col_in=name_display_first_last&leader_hitting_repeater.col_in=team_name", mockOptions);
     });
 
     it('should return a top 25 list object', () => {
