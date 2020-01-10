@@ -13,7 +13,7 @@ export class Landing extends Component  {
   componentDidMount() {
     const users = JSON.parse(localStorage.getItem("users"));
     this.props.setUsers(users)
-  }
+  };
 
   render() {
     return (
