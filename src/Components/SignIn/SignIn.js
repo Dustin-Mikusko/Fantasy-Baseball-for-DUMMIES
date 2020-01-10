@@ -19,8 +19,20 @@ export class SignIn extends Component {
     return (
       <form>
         <p>Sign in to your account</p>
-        <input type='text' placeholder='Email...'></input>
-        <input type="password" placeholder='Password...'></input>
+        <input 
+        className={this.state.inputError.email}
+        id='email' 
+        name='email'
+        type='text' 
+        placeholder='Email...'
+        />
+        <input 
+        className={this.state.inputError.password}
+        id='password'
+        name='password'
+        type="password" 
+        placeholder='Password...'
+        />
         <button type='button'>Sign In</button>
       </form>
     )
