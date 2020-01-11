@@ -18,9 +18,10 @@ export class SignUp extends Component {
         password: '',
         verifyPassword: '',
       },
-      passwordLengthMessage: '',
-      passwordMatchMessage: '',
+      userNameError: false,
       emailError: false,
+      passwordLengthMessage: false,
+      passwordMatchMessage: false,
       passwordError: false
     }
   };
@@ -32,10 +33,11 @@ export class SignUp extends Component {
   submitHandler = async () => {
     await this.setState({ emailError: false });
     await this.checkInputs();
+    await this.checkUserName();
     await this.checkExistingEmails();
     await this.checkPasswordMatch();
     await this.checkPasswordLength();
-    if (!this.state.passwordError && this.checkForError() && !this.state.emailError) {
+    if (!this.state.passwordError && this.checkForInputError() && !this.state.emailError && !this.state.userNameError) {
       const userName = this.state.userName.charAt(0).toUpperCase() + this.state.userName.substring(1);
       const user = {
         name: userName,
@@ -50,11 +52,19 @@ export class SignUp extends Component {
   };
 
   submitUser= user => {
-    const users = JSON.parse(localStorage.getItem("users"));
+    const users = this.props.users;
     users.push(user);
     localStorage.setItem("users", JSON.stringify(users));
     this.props.setUsers(users);
     this.props.setCurrentUser(user);
+  };
+
+  checkUserName = () => {
+    if (!this.state.userName) {
+      this.setState({ userNameError: true })
+    } else {
+      this.setState({ userNameError: false })
+    }
   }
 
   checkInputs = () => {
@@ -70,7 +80,7 @@ export class SignUp extends Component {
     });
   };
 
-  checkForError = () => {
+  checkForInputError = () => {
     let ready = true;
     Object.keys(this.state.inputError).forEach(key => {
       if (key === 'error') {
@@ -81,7 +91,7 @@ export class SignUp extends Component {
   };
 
   checkExistingEmails = () => {
-    const users = JSON.parse(localStorage.getItem("users"));
+    const users = this.props.users;
     users.forEach(user => {
       if (this.state.email === user.email) {
         this.setState({ emailError: true })
@@ -92,7 +102,7 @@ export class SignUp extends Component {
   checkPasswordLength = async () => {
     await this.setState({ passwordLengthMessage: '' });
     if (this.state.password.length < 6) {
-      this.setState({ passwordLengthMessage: 'Password must be at least 6 characters'});
+      this.setState({ passwordLengthMessage: true });
       this.setState({ passwordError: true });
     }
   }
@@ -100,7 +110,7 @@ export class SignUp extends Component {
   checkPasswordMatch = () => {
     if ((!this.state.password.length && !this.state.verifyPassword.length) || (this.state.password !== this.state.verifyPassword)) {
       this.setState({ passwordError: true});
-      this.setState({ passwordMatchMessage: 'Passwords do not match' })
+      this.setState({ passwordMatchMessage: true })
     } else {
       this.setState({ passwordError: false })
       this.setState({ passwordMatchMessage: '' })
@@ -115,7 +125,7 @@ export class SignUp extends Component {
         <p>Already have an account? <Link to='signin'>Log in here</Link></p>
         <label htmlFor='userName'>Name:</label><br />
         <input 
-          className={this.state.inputError.email}
+          className={this.state.inputError.userName}
           id='userName'
           name='userName'
           type='text' 
@@ -123,6 +133,7 @@ export class SignUp extends Component {
           onChange={this.handleChange}
           value={this.state.userName}
         />
+        {this.state.userNameError && <p>Name required</p>}
         <label htmlFor='email'>Email:</label><br />
         <input 
           className={this.state.inputError.email}
@@ -144,8 +155,8 @@ export class SignUp extends Component {
           onChange={this.handleChange}
           value={this.state.password}
         />
-        {this.state.passwordMatchMessage && <p>{this.state.passwordMatchMessage}</p>}
-        {this.state.passwordLengthMessage && <p>{this.state.passwordLengthMessage}</p>}
+        {this.state.passwordMatchMessage && <p>Passwords do not match</p>}
+        {this.state.passwordLengthMessage && <p>Password must be at least 6 characters</p>}
         <label htmlFor='verify-password'>Verify Password:</label><br />
         <input 
           className={this.state.inputError.verifyPassword}
@@ -165,6 +176,10 @@ export class SignUp extends Component {
 export const mapDispatchToProps = dispatch => ({
   setUsers: users => dispatch( setUsers(users) ),
   setCurrentUser: user => dispatch( setCurrentUser(user) )
+});
+
+export const mapStateToProps = state => ({
+  users: state.userDatabase
 })
 
-export default connect(null, mapDispatchToProps)(SignUp);
+export default connect(mapStateToProps, mapDispatchToProps)(SignUp);
