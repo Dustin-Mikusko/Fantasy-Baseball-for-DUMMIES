@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import './SignIn.css';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { setCurrentUser } from '../../Actions';
+import { Redirect } from 'react-router-dom';
 
 export class SignIn extends Component {
   constructor() {
@@ -12,13 +15,19 @@ export class SignIn extends Component {
         email: '',
         password: '',
       },
-      errorMessage: ''
+      emailError: '',
+      passwordError: '',
     }
   };
   
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value })
   };
+
+  submitHandler = async () => {
+    await this.checkInputs();
+    await this.findEmail();
+  }
 
   checkInputs = () => {
     const inputErrorState = {...this.state.inputError};
@@ -32,6 +41,33 @@ export class SignIn extends Component {
       }
     });
   };
+
+  findEmail = () => {
+    const users = this.props.users;
+    if (!this.state.email) {
+      this.setState({ emailMessage: 'Email required'});
+      return null;
+    } else {
+      this.setState({ emailMessage: '' });
+    }
+    if (users.find(user => this.state.email === user.email)) {
+      const user = users.find(user => this.state.email === user.email);
+      this.validatePassword(user);
+
+    } else {
+      this.setState({ emailMessage: 'Email not found'});
+      return false;
+    }
+  };
+
+  validatePassword = async (user) => {
+    if (user.password === this.state.password) {
+      await this.setState({ passwordError: '' });
+      this.props.setCurrentUser(user);
+    } else {
+      this.setState({ passwordError: 'Password incorrect' })
+    }
+  }
 
   render() {
     return (
@@ -48,7 +84,8 @@ export class SignIn extends Component {
         onChange={this.handleChange}
         value={this.state.email}
         />
-        <label htmlFor='password'>Email:</label>
+        {this.state.emailMessage && <p>{this.state.emailMessage}</p>}
+        <label htmlFor='password'>Password:</label>
         <input 
         className={this.state.inputError.password}
         id='password'
@@ -58,10 +95,19 @@ export class SignIn extends Component {
         onChange={this.handleChange}
         value={this.state.password}
         />
-        <button type='button' onClick={this.checkInputs}>Sign In</button>
+        {this.state.passwordError && <p>{this.state.passwordError}</p>}
+        <button type='button' onClick={this.submitHandler}>Sign In</button>
       </form>
     )
   }
-}
+};
 
-export default SignIn;
+export const mapDispatchToProps = dispatch => ({
+  setCurrentUser: user => dispatch( setCurrentUser(user) )
+});
+
+export const mapStateToProps = state => ({
+  users: state.userDatabase
+})
+
+export default connect(mapStateToProps, mapDispatchToProps) (SignIn);
