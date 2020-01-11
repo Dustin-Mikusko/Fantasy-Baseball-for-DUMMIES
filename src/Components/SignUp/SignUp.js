@@ -3,6 +3,7 @@ import './SignUp.css';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { setUsers, setCurrentUser } from '../../Actions';
+import { Redirect } from 'react-router-dom';
 
 export class SignUp extends Component {
   constructor() {
@@ -118,6 +119,9 @@ export class SignUp extends Component {
   }
 
   render() {
+    if (this.props.currentUser) {
+      return <Redirect to='/dashboard' />
+    }
     return (
       <form>
         <h3>Get started with a free account</h3>
@@ -179,7 +183,8 @@ export const mapDispatchToProps = dispatch => ({
 });
 
 export const mapStateToProps = state => ({
-  users: state.userDatabase
+  users: state.userDatabase,
+  currentUser: state.currentUser
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignUp);
