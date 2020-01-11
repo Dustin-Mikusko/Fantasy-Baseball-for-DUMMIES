@@ -13,7 +13,7 @@ export default class SearchPlayerForm extends Component {
       inputError: '',
       errorMessage: '',
       searchedPlayer: null,
-      searchedPlayerList: []
+      searchedPlayerList: null,
     }
   }
 
@@ -38,7 +38,7 @@ export default class SearchPlayerForm extends Component {
   cleanListOfPlayers = players => {
     return players.map(player => {
       return {
-        id: player.id,
+        id: player.player_id,
         name: player.name_display_first_last,
         team: player.team_full,
         position: player.position,
@@ -56,16 +56,28 @@ export default class SearchPlayerForm extends Component {
     if (name.includes(' ')) {
       fetchFullName(name)
         .then(data => {
-          const player = this.cleanData(data);
-          this.setState({ searchedPlayer: player })
+          if (data.search_player_all.queryResults.totalSize === '0') {
+            this.setState({ errorMessage: "Oops! Player not found or is no longer active.."})
+          } else {
+            this.setState({ searchedPlayerList: [] })
+            this.setState({ errorMessage: '' });
+            const player = this.cleanSinglePlayer(data);
+            this.setState({ searchedPlayer: player })
+          }
         })
         .catch(err => this.setState({ errorMessage: err }))
     } else {
       fetchSingleName(name)
         .then(data => {
-          const players = this.cleanListOfPlayers(data.search_player_all.queryResults.row)
-          this.setState({ searchedPlayerList: players })
-      })
+          if (data.search_player_all.queryResults.totalSize === '0') {
+            this.setState({ errorMessage: "Oops! Player not found or is no longer active.."})
+          } else {
+            this.setState({ errorMessage: '' });
+            this.setState({ searchedPlayer: null })
+            const players = this.cleanListOfPlayers(data.search_player_all.queryResults.row)
+            this.setState({ searchedPlayerList: players })
+          } 
+        })
         .catch(err => this.setState({ errorMessage: err }))
     }
   }
@@ -78,6 +90,7 @@ export default class SearchPlayerForm extends Component {
           <input type='text' onChange={this.handleChange}></input>
           <button type="button" onClick={this.findPlayers}>submit</button>
         </form>
+        {this.state.errorMessage && <p>{this.state.errorMessage}</p>}
         {this.state.searchedPlayer && <PlayerPage 
           player={this.state.searchedPlayer}
         />}
