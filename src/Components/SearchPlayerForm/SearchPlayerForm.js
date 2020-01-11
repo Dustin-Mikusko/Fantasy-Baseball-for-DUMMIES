@@ -3,6 +3,7 @@ import './SearchPlayerForm.css';
 import { fetchSingleName, fetchFullName } from '../../apiCalls';
 import PlayerPage from '../PlayerPage/PlayerPage';
 import Header from '../Header/Header';
+import PlayerContainer from '../PlayerContainer/PlayerContainer';
 
 export default class SearchPlayerForm extends Component {
   constructor() {
@@ -20,7 +21,7 @@ export default class SearchPlayerForm extends Component {
     this.setState({ name: e.target.value})
   }
 
-  cleanData = data => {
+  cleanSinglePlayer = data => {
     return {
       id: data.search_player_all.queryResults.row.player_id,
       name: data.search_player_all.queryResults.row.name_display_first_last,
@@ -32,6 +33,22 @@ export default class SearchPlayerForm extends Component {
       bats: data.search_player_all.queryResults.row.bats,
       throws: data.search_player_all.queryResults.row.throws
     };
+  };
+
+  cleanListOfPlayers = players => {
+    return players.map(player => {
+      return {
+        id: player.id,
+        name: player.name_display_first_last,
+        team: player.team_full,
+        position: player.position,
+        inches: player.height_inches,
+        feet: player.height_feet,
+        weight: player.weight,
+        bats: player.bats,
+        throws: player.throws
+      };
+    })
   }
 
   findPlayers = () => {
@@ -46,18 +63,8 @@ export default class SearchPlayerForm extends Component {
     } else {
       fetchSingleName(name)
         .then(data => {
-          const player = {
-          id: data.search_player_all.queryResults.row.player_id,
-          name: data.search_player_all.queryResults.row.name_display_first_last,
-          team: data.search_player_all.queryResults.row.team_full,
-          position: data.search_player_all.queryResults.row.position,
-          inches: data.search_player_all.queryResults.row.height_inches,
-          feet: data.search_player_all.queryResults.row.height_feet,
-          weight: data.search_player_all.queryResults.row.weight,
-          bats: data.search_player_all.queryResults.row.bats,
-          throws: data.search_player_all.queryResults.row.throws
-        }
-        this.setState({ searchedPlayer: player })
+          const players = this.cleanListOfPlayers(data.search_player_all.queryResults.row)
+          this.setState({ searchedPlayerList: players })
       })
         .catch(err => this.setState({ errorMessage: err }))
     }
@@ -73,6 +80,9 @@ export default class SearchPlayerForm extends Component {
         </form>
         {this.state.searchedPlayer && <PlayerPage 
           player={this.state.searchedPlayer}
+        />}
+        {this.state.searchedPlayerList && <PlayerContainer 
+        players={this.state.searchedPlayerList}
         />}
       </>
     )
