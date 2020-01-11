@@ -70,6 +70,9 @@ export class SignIn extends Component {
   }
 
   render() {
+    if (this.props.currentUser) {
+      return <Redirect to='/dashboard' />
+    }
     return (
       <form>
         <p>Sign in to your account</p>
@@ -107,7 +110,8 @@ export const mapDispatchToProps = dispatch => ({
 });
 
 export const mapStateToProps = state => ({
-  users: state.userDatabase
+  users: state.userDatabase,
+  currentUser: state.currentUser
 })
 
 export default connect(mapStateToProps, mapDispatchToProps) (SignIn);
