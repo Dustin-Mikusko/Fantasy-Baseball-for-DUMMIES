@@ -7,6 +7,7 @@
   padding: 15px;
   margin: auto;
   margin-top: 40px;
+  position: relative;
 }
 
 .player-name {
@@ -28,16 +29,19 @@
   text-decoration: none;
   color: white;
   background-color: #041F42;
-  height: 80px;
-  width: 200px;
+  width: 150px;
   margin: auto;
   margin-top: 45px;
   padding: 10px;
   border-radius: 3px;
+  position: absolute;
+  text-align: center;
+  bottom: 10px;
+  left: 100px;
 }
 
 .view-stats-btn:hover {
-  background-color: #041F42;
+  background-color: rgb(6, 71, 155);
 }
 
 .view-stats-btn:active {

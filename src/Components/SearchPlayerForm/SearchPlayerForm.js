@@ -91,9 +91,9 @@ export default class SearchPlayerForm extends Component {
           <button type="button" className='player-search-btn'onClick={this.findPlayers}>SEARCH</button>
         </form>
         {this.state.errorMessage && <p>{this.state.errorMessage}</p>}
-        {this.state.searchedPlayer && <PlayerPage 
+        {this.state.searchedPlayer && <div className='single-player'><PlayerPage 
           player={this.state.searchedPlayer}
-        />}
+        /></div>}
         {this.state.searchedPlayerList && <PlayerContainer 
         players={this.state.searchedPlayerList}
         />}
