@@ -1,0 +1,45 @@
+.player-card {
+  color: #041F42;
+  border: 7px ridge #041F42;
+  width: 25%;
+  height: 360px;
+  font-size: 1.4em;
+  padding: 15px;
+  margin: auto;
+  margin-top: 40px;
+}
+
+.player-name {
+  border-bottom: 2px solid #041F42;
+  text-align: center;
+  margin-top: 5px;
+  font-family: Astros;
+}
+
+.tag {
+  font-weight: bold;
+}
+
+.bats {
+  margin-bottom: 10px;
+}
+
+.view-stats-btn {
+  text-decoration: none;
+  color: white;
+  background-color: #041F42;
+  height: 80px;
+  width: 200px;
+  margin: auto;
+  margin-top: 45px;
+  padding: 10px;
+  border-radius: 3px;
+}
+
+.view-stats-btn:hover {
+  background-color: #041F42;
+}
+
+.view-stats-btn:active {
+  transform: scale(.97);
+}
