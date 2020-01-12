@@ -13,7 +13,8 @@ const App = () => {
       <Route exact path='/' component={Landing} />
       <Route exact path='/signup' component={SignUp} />
       <Route exact path='/signin' component={SignIn} />
-      <Route expact path='/dashboard' component={Dashboard} />
+      <Route path='/dashboard' component={Dashboard} />
+      <Route path='/search' component={SearchPlayerForm} />
     </div>
   );
 }
