@@ -23,11 +23,12 @@
   font-size: 1em;
 }
 
-.form-sign-in:hover {
+.form-sign-in-btn:hover {
   background-color: rgb(6, 71, 155);
+  cursor: pointer;
 }
 
-.form-sign-in:active {
+.form-sign-in-btn:active {
   transform: scale(.97);
 }
 

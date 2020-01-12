@@ -12,6 +12,7 @@ export const Header = ({ currentUser, signOut }) => {
       <h3 className='welcome'>Hello, {currentUser.name}!</h3>
       <img src={logo} alt='mlb-logo' />
       <div className='links'>
+        <Link to='/dashboard' className='header-link dashboard-header'>Dashboard</Link>
         <Link to='/' className='header-link sign-out' onClick={signOut}>Sign Out</Link>
         <Link to='/favorites' id='favorites' className='header-link'>View Your Players({currentUser.favoritePlayers.length})</Link>
       </div>
