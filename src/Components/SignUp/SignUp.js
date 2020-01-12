@@ -123,56 +123,62 @@ export class SignUp extends Component {
       return <Redirect to='/dashboard' />
     }
     return (
-      <form>
-        <h3>Get started with a free account</h3>
-        <p>Create a free account to blow your friends away with your newfound baseball knowledge!</p>
-        <p>Already have an account? <Link to='signin'>Log in here</Link></p>
-        <label htmlFor='userName'>Name:</label><br />
-        <input 
-          className={this.state.inputError.userName}
-          id='userName'
-          name='userName'
-          type='text' 
-          placeholder='Enter Your Name..'
-          onChange={this.handleChange}
-          value={this.state.userName}
-        />
-        {this.state.userNameError && <p>Name required</p>}
-        <label htmlFor='email'>Email:</label><br />
-        <input 
-          className={this.state.inputError.email}
-          id='email'
-          name='email'
-          type='text' 
-          placeholder='Email...'
-          onChange={this.handleChange}
-          value={this.state.email}
-        />
-        {this.state.emailError && <p>Email already in use</p>}
-        <label htmlFor='password'>Password:</label><br />
-        <input 
-          className={this.state.inputError.password}
-          id='password'
-          name='password'
-          type="password" 
-          placeholder='At least 6 characters...'
-          onChange={this.handleChange}
-          value={this.state.password}
-        />
-        {this.state.passwordMatchMessage && <p>Passwords do not match</p>}
-        {this.state.passwordLengthMessage && <p>Password must be at least 6 characters</p>}
-        <label htmlFor='verify-password'>Verify Password:</label><br />
-        <input 
-          className={this.state.inputError.verifyPassword}
-          id='verify-password'
-          name='verifyPassword'
-          type="password" 
-          placeholder='At least 6 characters...'
-          onChange={this.handleChange}
-          value={this.state.verifyPassword}
-        />
-        <button type='button' onClick={this.submitHandler}>Sign Up</button>
-      </form>
+      <section className='sign-up-page'>
+        <form>
+          <h3>Get started with a free account</h3>
+          <p>Create a free account to blow your friends away with your newfound baseball knowledge!</p>
+          <p>Already have an account? <Link to='signin'>Log in here</Link></p>
+          <div className='inputs'>
+          <label htmlFor='userName'>Name:</label>
+          <input 
+            className={this.state.inputError.userName}
+            id='userName'
+            name='userName'
+            type='text' 
+            placeholder='Enter Your Name..'
+            onChange={this.handleChange}
+            value={this.state.userName}
+          />
+          {this.state.userNameError && <p className='error-message'>Name required</p>}
+          <label htmlFor='email'>Email:</label>
+          <input 
+            className={this.state.inputError.email}
+            id='email'
+            name='email'
+            type='text' 
+            placeholder='Email...'
+            onChange={this.handleChange}
+            value={this.state.email}
+          />
+          {this.state.emailError && <p className='error-message'>Email already in use</p>}
+          <label htmlFor='password'>Password:</label>
+          <input 
+            className={this.state.inputError.password}
+            id='password'
+            name='password'
+            type="password" 
+            placeholder='At least 6 characters...'
+            onChange={this.handleChange}
+            value={this.state.password}
+          />
+          {this.state.passwordMatchMessage && <p className='error-message'>Passwords do not match</p>}
+          {this.state.passwordLengthMessage && <p className='error-message'>Password must be at least 6 characters</p>}
+          <label htmlFor='verify-password'>Verify Password:</label>
+          <input 
+            className={this.state.inputError.verifyPassword}
+            id='verify-password'
+            name='verifyPassword'
+            type="password" 
+            placeholder='At least 6 characters...'
+            onChange={this.handleChange}
+            value={this.state.verifyPassword}
+          />
+          </div>
+          
+          <button type='button' className='form-sign-up' onClick={this.submitHandler}>Sign Up</button>
+        </form>
+      </section>
+      
     )
   }
 };

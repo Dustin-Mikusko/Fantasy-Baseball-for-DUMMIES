@@ -1,3 +1,70 @@
 .error {
   border: 1px solid red;
 }
+
+h3 {
+  margin: 0;
+}
+
+.sign-up-page {
+  background-color: #041F42;
+  height: 100vh;
+  padding-top: 100px;
+}
+
+form {
+  background-color: white;
+  margin: auto;
+  height: 650px;
+  width: 55%;
+  border: 10px solid #BF0D3E;
+  text-align: center;
+  padding: 30px;
+  font-size: 1.5em;
+}
+
+input {
+  height: 35px;
+  margin-bottom: 10px;
+  font-size: .8em;
+  padding-left: 5px;
+}
+
+.form-sign-up {
+  color: white;
+  background-color: #041F42;
+  height: 45px;
+  width: 135px;
+  border: none;
+  border-radius: 3px;
+  margin-top: 40px;
+  font-size: 1em;
+}
+
+.form-sign-up:hover {
+  background-color: rgb(6, 71, 155);
+}
+
+.form-sign-up:active {
+  transform: scale(.97);
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  width: 40%;
+  margin: auto;
+}
+
+label {
+  margin-bottom: 0px;
+}
+
+.error-message {
+  color: red;
+  font-size: .5em;
+  margin-top: -10px;
+}
+
+
