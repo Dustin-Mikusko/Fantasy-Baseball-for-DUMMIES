@@ -20,7 +20,8 @@
 }
 
 .player-search-btn:hover {
-  background-color: rgb(6, 71, 155)
+  background-color: rgb(6, 71, 155);
+  cursor: pointer;
 }
 
 .player-search-btn:active {

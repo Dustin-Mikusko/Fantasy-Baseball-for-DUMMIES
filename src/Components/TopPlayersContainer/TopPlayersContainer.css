@@ -1,0 +1,23 @@
+.top-container {
+  display: flex;
+  flex-direction: row;
+  padding: 50px;
+  width: 100%;
+}
+
+.stat-explanation {
+  width: 40%;
+  padding: 10px;
+  font-size: 2em;
+}
+
+.top-player-container {
+  width: 50%;
+  justify-content: center;
+}
+
+.top-player-name {
+  text-align: center;
+  border-bottom: 1px solid #041F42;
+
+}

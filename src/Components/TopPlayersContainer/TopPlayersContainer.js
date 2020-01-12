@@ -3,9 +3,10 @@ import './TopPlayersContainer.css';
 import TopPlayer from '../TopPlayer/TopPlayer'
 
 export const TopPlayersContainer = ({ players, stat }) => {
-  const displayPlayers = players.map(player => {
+  const displayPlayers = players.map((player, index) => {
     return (
       <TopPlayer 
+        rank={index + 1}
         stat={player[stat]}
         statName={stat}
         team={player.team_name}
@@ -16,9 +17,9 @@ export const TopPlayersContainer = ({ players, stat }) => {
   });
 
   return (
-    <>
-      {displayPlayers}
-    </>
+   <section className='top-player-container'>
+    {displayPlayers}
+   </section>
   )
 }
 
