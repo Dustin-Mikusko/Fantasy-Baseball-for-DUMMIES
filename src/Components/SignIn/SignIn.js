@@ -74,33 +74,38 @@ export class SignIn extends Component {
       return <Redirect to='/dashboard' />
     }
     return (
-      <form>
-        <p>Sign in to your account</p>
-        <p>Don't have an account? <Link to='/signup'>Sign up here</Link></p>
-        <label htmlFor='email'>Email:</label>
-        <input 
-        className={this.state.inputError.email}
-        id='email' 
-        name='email'
-        type='text' 
-        placeholder='Email...'
-        onChange={this.handleChange}
-        value={this.state.email}
-        />
-        {this.state.emailMessage && <p>{this.state.emailMessage}</p>}
-        <label htmlFor='password'>Password:</label>
-        <input 
-        className={this.state.inputError.password}
-        id='password'
-        name='password'
-        type="password" 
-        placeholder='Password...'
-        onChange={this.handleChange}
-        value={this.state.password}
-        />
-        {this.state.passwordError && <p>{this.state.passwordError}</p>}
-        <button type='button' onClick={this.submitHandler}>Sign In</button>
-      </form>
+      <section className='sign-in-page'>
+        <form className='sign-in-form'>
+          <h3 className=''>Sign in to your account</h3>
+          <p>Don't have an account? <Link to='/signup'>Sign up here</Link></p>
+          <div className='inputs'>
+          <label htmlFor='email'>Email:</label>
+          <input 
+          className={this.state.inputError.email}
+          id='email' 
+          name='email'
+          type='text' 
+          placeholder='Email...'
+          onChange={this.handleChange}
+          value={this.state.email}
+          />
+          {this.state.emailMessage && <p className='error-message'>{this.state.emailMessage}</p>}
+          <label htmlFor='password'>Password:</label>
+          <input 
+          className={this.state.inputError.password}
+          id='password'
+          name='password'
+          type="password" 
+          placeholder='Password...'
+          onChange={this.handleChange}
+          value={this.state.password}
+          />
+          {this.state.passwordError && <p className='error-message'>{this.state.passwordError}</p>}
+          </div>
+          <button type='button' className='form-sign-in-btn' onClick={this.submitHandler}>Sign In</button>
+        </form>
+      </section>
+      
     )
   }
 };
