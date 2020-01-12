@@ -6,6 +6,7 @@ import Landing from '../Landing/Landing';
 import SignIn from '../SignIn/SignIn';
 import SignUp from '../SignUp/SignUp';
 import Dashboard from '../Dashboard/Dashboard';
+import TopPlayersForm from '../TopPlayersForm/TopPlayersForm';
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
       <Route exact path='/signin' component={SignIn} />
       <Route path='/dashboard' component={Dashboard} />
       <Route path='/search' component={SearchPlayerForm} />
+      <Route path ='/top-players' component={TopPlayersForm} />
     </div>
   );
 }
