@@ -1,1 +1,26 @@
+.search-player-form {
+  height: 20px;
+  border: none;
+}
 
+.player-search-input {
+  font-size: 1.2em;
+  margin-right: 10px;
+  padding-left: 5px;
+}
+
+.player-search-btn {
+  background-color: #041F42;
+  color: white;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 3px;
+}
+
+.player-search-btn:hover {
+  background-color: rgb(6, 71, 155)
+}
+
+.player-search-btn:active {
+  transform: scale(.97)
+}
