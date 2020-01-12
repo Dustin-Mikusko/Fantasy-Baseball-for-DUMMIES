@@ -1,0 +1,92 @@
+main {
+  display: flex;
+  height: 100vh;
+}
+
+.logo {
+  height: 30%
+}
+
+.landing-left {
+  padding-top: 120px;
+  background-color: #041F42;
+  color: white;
+  width: 150%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-size: 2.8em;
+}
+
+.dummies {
+  font-family: Dummy;
+  transform: rotate(-15deg);
+  margin-top: -10px;
+}
+
+.landing-right {
+  padding: 90px 50px;
+  text-align: justify;
+  font-size: 1.5em;
+  width: 100%;
+}
+
+.headline {
+  text-align: center;
+  font-size: 2em;
+}
+
+.intro {
+  font-size: 1.2em;
+  margin-bottom: 120px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.sign-in, .sign-up {
+  padding-top: 15px;
+  margin: auto;
+  text-decoration: none;
+  color: white;
+  height: 50px;
+  width: 180px;
+  border-radius: 3px;
+  font-size: 1.2em;
+}
+
+.sign-up {
+  background-color: #BF0D3E;
+}
+
+.sign-in {
+  background-color: #041F42;
+  margin-bottom: 20px;
+}
+
+.sign-in:hover {
+  background-color: rgb(6, 71, 155);
+}
+
+.sign-up:hover {
+  background-color: rgb(249, 2, 72);
+}
+
+.sign-in:active, .sign-up:active {
+  transform: scale(.97);
+}
+
+
+
+
+
+
+
+
+
+
+
+

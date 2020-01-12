@@ -1,3 +1,35 @@
 .error {
   border: 1px solid red;
 }
+
+.sign-in-page {
+  background-color: #041F42;
+  height: 100vh;
+  padding-top: 100px;
+}
+
+.sign-in-form {
+  height: 500px;
+}
+
+.form-sign-in-btn {
+  color: white;
+  background-color: #041F42;
+  height: 45px;
+  width: 135px;
+  border: none;
+  border-radius: 3px;
+  margin-top: 40px;
+  font-size: 1em;
+}
+
+.form-sign-in-btn:hover {
+  background-color: rgb(6, 71, 155);
+  cursor: pointer;
+}
+
+.form-sign-in-btn:active {
+  transform: scale(.97);
+}
+
+

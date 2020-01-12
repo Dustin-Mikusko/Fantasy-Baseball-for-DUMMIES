@@ -1,0 +1,39 @@
+.dashboard {
+  margin: auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-welcome {
+  margin-top: -5px;
+  font-size: 3em;
+}
+
+.dashboard-info {
+  font-size: 1.5em;
+  width: 50%;
+  margin: auto;
+  margin-bottom: 40px;
+}
+
+.dashboard-link {
+  border-radius: 3px;
+  padding-top: 12px;
+  text-decoration: none;
+  margin: auto;
+  margin-bottom: 15px;
+  width: 50%;
+  height: 60px;
+  font-size: 2.3em;
+  color: white;
+  background-color: #041f42
+}
+
+.dashboard-link:hover {
+  background-color: rgb(6, 71, 155)
+}
+
+.dashboard-link:active {
+  transform: scale(.97)
+}
