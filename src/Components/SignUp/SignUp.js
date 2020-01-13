@@ -196,7 +196,7 @@ export const mapStateToProps = state => ({
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignUp);
 
-SignIn.propTypes = {
+SignUp.propTypes = {
   setUsers: PropTypes.func,
   setCurrentUser: PropTypes.func,
   users: PropTypes.array,
