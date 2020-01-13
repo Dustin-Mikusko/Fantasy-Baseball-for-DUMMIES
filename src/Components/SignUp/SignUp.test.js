@@ -318,5 +318,5 @@ describe('SignUp', () => {
 
       expect(mappedProps).toEqual(expected);
     });
-  })
+  });
 });
