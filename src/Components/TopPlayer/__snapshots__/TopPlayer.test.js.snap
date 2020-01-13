@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TopPlayer should match the snapshot with the correct data 1`] = `ShallowWrapper {}`;

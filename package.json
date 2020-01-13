@@ -38,5 +38,12 @@
   "devDependencies": {
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2"
+  },
+  "jest": {
+    "coveragePathIgnorePatterns": [
+      "src/serviceWorker.js",
+      "src/index.js",
+      "src/Reducers/index.js"
+    ]
   }
 }
