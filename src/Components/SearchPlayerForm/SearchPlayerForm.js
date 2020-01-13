@@ -87,7 +87,7 @@ export default class SearchPlayerForm extends Component {
       <>
         <Header />
         <form className='search-player-form'>
-          <input type='text' className='player-search-input' onChange={this.handleChange} placeholder='e.g jose altuve'></input>
+          <input type='text' className='player-search-input' onChange={this.handleChange} placeholder='e.g. jose altuve'></input>
           <button type="button" className='player-search-btn'onClick={this.findPlayers}>SEARCH</button>
         </form>
         {this.state.errorMessage && <p>{this.state.errorMessage}</p>}
