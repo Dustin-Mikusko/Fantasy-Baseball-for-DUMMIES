@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { setUsers, setCurrentUser } from '../../Actions';
 import { Redirect } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 export class SignUp extends Component {
   constructor() {
@@ -194,3 +195,10 @@ export const mapStateToProps = state => ({
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignUp);
+
+SignIn.propTypes = {
+  setUsers: PropTypes.func,
+  setCurrentUser: PropTypes.func,
+  users: PropTypes.array,
+  currentUser: PropTypes.object
+}

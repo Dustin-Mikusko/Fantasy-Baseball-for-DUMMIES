@@ -4,6 +4,7 @@ import logo from '../../images/logo.svg';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { setUsers } from '../../Actions';
+import PropTypes from 'prop-types';
 
 export class Landing extends Component  {
   constructor() {
@@ -41,3 +42,7 @@ export const mapDispatchToProps = dispatch => ({
 })
 
 export default connect(null, mapDispatchToProps)(Landing);
+
+Landing.propTypes = {
+  setUsers: PropTypes.func
+}

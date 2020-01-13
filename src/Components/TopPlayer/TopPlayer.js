@@ -1,5 +1,6 @@
 import React from 'react';
 import './TopPlayer.css'
+import PropTypes from 'prop-types';
 
 export const TopPlayer = ({ stat, statName, team, name, rank }) => {
   const statNameUpper = statName.toUpperCase();
@@ -13,3 +14,11 @@ export const TopPlayer = ({ stat, statName, team, name, rank }) => {
 }
 
 export default TopPlayer;
+
+TopPlayer.propTypes = {
+  stat: PropTypes.string,
+  statName: PropTypes.string,
+  team: PropTypes.string,
+  name: PropTypes.string,
+  rank: PropTypes.number
+}

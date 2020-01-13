@@ -1,6 +1,7 @@
 import React from 'react';
 import './PlayerPage.css';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 export const PlayerPage = ({ player }) => {
   return (
@@ -17,4 +18,15 @@ export const PlayerPage = ({ player }) => {
 };
 
 export default PlayerPage;
+
+PlayerPage.propTypes = {
+  id: PropTypes.string,
+  name: PropTypes.string,
+  team: PropTypes.string,
+  postition: PropTypes.string,
+  feet: PropTypes.string,
+  inches: PropTypes.string,
+  bats: PropTypes.string,
+  throws: PropTypes.string
+}
 
