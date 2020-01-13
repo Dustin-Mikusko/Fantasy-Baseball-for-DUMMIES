@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import './SearchPage.css';
 import Header from '../Header/Header';
 import SearchPlayerForm from '../SearchPlayerForm/SearchPlayerForm';
