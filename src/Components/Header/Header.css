@@ -39,6 +39,14 @@ header {
   margin-right: 8px;
 }
 
+.header-link:hover {
+  transform: scale(1.03);
+}
+
+.header-link:active {
+  transform: scale(.97);
+}
+
 .dashboard-header {
   font-size: 1.5em;
 }
