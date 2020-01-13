@@ -1,6 +1,7 @@
 import React from 'react';
 import './PlayerContainer.css';
 import PlayerPage from '../PlayerPage/PlayerPage';
+import PropTypes from 'prop-types';
 
 export const PlayerContainer = ({ players }) => {
   const displayPlayers = players.map(player => {
@@ -19,3 +20,7 @@ export const PlayerContainer = ({ players }) => {
 }
 
 export default PlayerContainer;
+
+PlayerContainer.propTypes = {
+  players: PropTypes.array
+}

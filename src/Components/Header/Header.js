@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import logo from '../../images/logo.svg';
 import { Link } from 'react-router-dom';
 import { signOut } from '../../Actions';
+import PropTypes from 'prop-types';
 
 
 export const Header = ({ currentUser, signOut }) => {
@@ -29,3 +30,8 @@ export const mapDispatchToProps =  dispatch => ({
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);
+
+Header.propTypes = {
+  currentUser: PropTypes.object,
+  singOut: PropTypes.func
+}

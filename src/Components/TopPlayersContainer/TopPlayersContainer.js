@@ -1,6 +1,7 @@
 import React from 'react';
 import './TopPlayersContainer.css';
-import TopPlayer from '../TopPlayer/TopPlayer'
+import TopPlayer from '../TopPlayer/TopPlayer';
+import PropTypes from 'prop-types';
 
 export const TopPlayersContainer = ({ players, stat }) => {
   const displayPlayers = players.map((player, index) => {
@@ -24,3 +25,8 @@ export const TopPlayersContainer = ({ players, stat }) => {
 }
 
 export default TopPlayersContainer;
+
+TopPlayersContainer.propTypes = {
+  players: PropTypes.array,
+  stat: PropTypes.string
+}
