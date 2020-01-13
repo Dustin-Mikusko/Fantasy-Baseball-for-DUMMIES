@@ -11,30 +11,30 @@ To verify that it is setup correctly, run npm start in your terminal. Go to http
 
 This project was my first project that I thought of from the ground up. There was no prompt other than "find an API and build and app from it". I chose a MLB Data API from RapidAPI, because I wanted to bring the world of baseball in simple terms non-baseball fanatics. It was fun deciding everything about this app, from the data to be fetched, the React architecture, the Route paths and how and when to implement the Redux store. 
 
-### UI/UX
+#### UI/UX
 
 I am very pleased with the visual result from the Landing page, all the way through. The micro-interactions with the buttons make the app flow well. The color scheme is very on brand with the MLB. 
 
-### Error Handling
+#### Error Handling
 
 This app has more forms than any app I've done previously. The Sign In/Sign Up forms look very clean and manage well with user interactions and error handling.
 
 ## Challenges
 
-### API Endpoints
+#### API Endpoints
 
 The biggest hurdle for this project was figuring out the API endpoints and how to create an app with forms to dynamically make the correct fetch call to each endpoint as needed and clean the data down to exactly what I wanted to display.
 
-### Error Handling (lol)
+#### Error Handling (lol)
 
 As stated above, the final iteration of the error handling looks and feels good; however, it was a huge challenge and took a lot of time to get right. There are so many user errors to account for. 
 
-### Future Iterations
+## Future Iterations
 
 Very soon there will be functionality for a user to save favorite players to their profile so as to build a "draft board". Also, upon searching for a specific player, a user can see various stats for that player. 
 
 ## Screenshots
 
-### Landing/Sign In/Sign Up
+#### Landing/Sign In/Sign Up
 
 ![2020-01-13 15 50 19](https://user-images.githubusercontent.com/52764657/72298847-7baad980-361c-11ea-8df8-0d3a13119b85.gif)
