@@ -6,8 +6,9 @@ import Header from '../Header/Header';
 export const Dashboard = () => {
   return (
     <>
-      <Header />
+      
       <section className='dashboard'>
+        <Header />
         <h1 className='dashboard-welcome'>Welcome to your dashboard!</h1>
         <h4 className='dashboard-info'>From here you can search for players by name, see the top 25 players by each stat, or view the players that you have favorited!</h4>
         <Link to='search' className='dashboard-link'>SEARCH PLAYERS</Link>

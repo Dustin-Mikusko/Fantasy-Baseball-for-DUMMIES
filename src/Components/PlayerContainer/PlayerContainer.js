@@ -1,5 +1,5 @@
 import React from 'react';
-import './PlayerContainer';
+import './PlayerContainer.css';
 import PlayerPage from '../PlayerPage/PlayerPage';
 
 export const PlayerContainer = ({ players }) => {
@@ -12,7 +12,7 @@ export const PlayerContainer = ({ players }) => {
   });
 
   return (
-    <div>
+    <div className='search-player-container'>
       {displayPlayers}
     </div>
   )

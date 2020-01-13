@@ -29,11 +29,12 @@ export class TopPlayersForm extends Component {
   }
 
   render() {
+    const bigStat = this.state.stat.toUpperCase();
     return (
     <>
       <Header />
-      <form>
-        <select name='stat' onChange={this.handleChange}>
+      <form className='stat-form'>
+        <select className='stat-select' name='stat' onChange={this.handleChange}>
           <option>--Select Stat--</option>
           <option value='bb'>BB</option>
           <option value='rbi'>RBI</option>
@@ -47,7 +48,7 @@ export class TopPlayersForm extends Component {
           <option value='ops'>OPS</option>
           <option value='so'>SO</option>
         </select>
-        <select name='season' onChange={this.handleChange}>
+        <select className='season-select'name='season' onChange={this.handleChange}>
           <option>--Select Season--</option>
           <option value='2019'>2019</option>
           <option value='2018'>2018</option>
@@ -55,13 +56,20 @@ export class TopPlayersForm extends Component {
           <option value='2016'>2016</option>
           <option value='2015'>2015</option>
         </select>
-        <button type='button' onClick={this.getTopPlayers}>GO</button>
+        <button type='button' className='top-players-btn' onClick={this.getTopPlayers}>GO</button>
       </form>
       {this.state.error && <p>Oops! Something went wrong..</p>}
+      {this.state.players.length && 
+        <div className='top-container'>
+        <section className='stat-explanation'>
+          <h1>{bigStat}:</h1>
+          <p>This is an explantaion of the stat.</p>
+        </section>
       <TopPlayersContainer 
         players={this.state.players}
         stat={this.state.stat} 
       />
+      </div>}
     </>
     )
   }

@@ -86,14 +86,14 @@ export default class SearchPlayerForm extends Component {
     return (
       <>
         <Header />
-        <form>
-          <input type='text' onChange={this.handleChange}></input>
-          <button type="button" onClick={this.findPlayers}>submit</button>
+        <form className='search-player-form'>
+          <input type='text' className='player-search-input' onChange={this.handleChange} placeholder='e.g jose altuve'></input>
+          <button type="button" className='player-search-btn'onClick={this.findPlayers}>SEARCH</button>
         </form>
         {this.state.errorMessage && <p>{this.state.errorMessage}</p>}
-        {this.state.searchedPlayer && <PlayerPage 
+        {this.state.searchedPlayer && <div className='single-player'><PlayerPage 
           player={this.state.searchedPlayer}
-        />}
+        /></div>}
         {this.state.searchedPlayerList && <PlayerContainer 
         players={this.state.searchedPlayerList}
         />}
