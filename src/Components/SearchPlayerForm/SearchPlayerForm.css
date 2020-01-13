@@ -28,6 +28,11 @@
   transform: scale(.97)
 }
 
+.player-search-error {
+  color: red;
+  /* margin-top: 200px; */
+}
+
 .single-player {
   margin-top: 240px;
 }

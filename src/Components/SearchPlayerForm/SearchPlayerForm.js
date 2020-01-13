@@ -57,6 +57,7 @@ export default class SearchPlayerForm extends Component {
       fetchFullName(name)
         .then(data => {
           if (data.search_player_all.queryResults.totalSize === '0') {
+            this.setState({ searchedPlayer: null })
             this.setState({ errorMessage: "Oops! Player not found or is no longer active.."})
           } else {
             this.setState({ searchedPlayerList: [] })
@@ -70,6 +71,7 @@ export default class SearchPlayerForm extends Component {
       fetchSingleName(name)
         .then(data => {
           if (data.search_player_all.queryResults.totalSize === '0') {
+            this.setState({ searchedPlayer: null })
             this.setState({ errorMessage: "Oops! Player not found or is no longer active.."})
           } else {
             this.setState({ errorMessage: '' });
@@ -89,8 +91,8 @@ export default class SearchPlayerForm extends Component {
         <form className='search-player-form'>
           <input type='text' className='player-search-input' onChange={this.handleChange} placeholder='e.g. jose altuve'></input>
           <button type="button" className='player-search-btn'onClick={this.findPlayers}>SEARCH</button>
+          {this.state.errorMessage && <p className='player-search-error'>{this.state.errorMessage}</p>}
         </form>
-        {this.state.errorMessage && <p>{this.state.errorMessage}</p>}
         {this.state.searchedPlayer && <div className='single-player'><PlayerPage 
           player={this.state.searchedPlayer}
         /></div>}
