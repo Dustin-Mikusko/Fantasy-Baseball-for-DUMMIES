@@ -38,3 +38,7 @@ Very soon there will be functionality for a user to save favorite players to the
 #### Landing/Sign In/Sign Up
 
 ![2020-01-13 15 50 19](https://user-images.githubusercontent.com/52764657/72298847-7baad980-361c-11ea-8df8-0d3a13119b85.gif)
+
+#### Signing In To Dashboard
+
+![2020-01-13 15 52 47](https://user-images.githubusercontent.com/52764657/72298977-cfb5be00-361c-11ea-909f-56b182433b11.gif)
