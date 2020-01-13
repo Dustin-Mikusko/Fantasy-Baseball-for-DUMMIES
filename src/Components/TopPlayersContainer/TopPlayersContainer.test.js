@@ -18,5 +18,5 @@ describe('TopPlayersContainer', () => {
     />);
     
     expect(wrapper).toMatchSnapshot();
-  })
+  });
 })

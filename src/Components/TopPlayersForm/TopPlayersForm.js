@@ -22,7 +22,6 @@ export class TopPlayersForm extends Component {
   getTopPlayers = () => {
     fetchTop25(this.state.season, this.state.stat)
       .then(data => {
-        console.log(data.leader_hitting_repeater.leader_hitting_mux.queryResults.row);
         this.setState({ players: data.leader_hitting_repeater.leader_hitting_mux.queryResults.row })
       })
       .catch(err => this.setState({ error: true }))
