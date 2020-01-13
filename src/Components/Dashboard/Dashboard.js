@@ -6,7 +6,6 @@ import Header from '../Header/Header';
 export const Dashboard = () => {
   return (
     <>
-      
       <section className='dashboard'>
         <Header />
         <h1 className='dashboard-welcome'>Welcome to your dashboard!</h1>
@@ -15,7 +14,6 @@ export const Dashboard = () => {
         <Link to='top-players' className='dashboard-link'>VIEW TOP 25</Link>
         <Link to='favorites' className='dashboard-link'>VIEW YOUR PLAYERS</Link>
       </section>
-      
     </>
   )
 }
