@@ -5,7 +5,7 @@ import PlayerPage from '../PlayerPage/PlayerPage';
 import Header from '../Header/Header';
 import PlayerContainer from '../PlayerContainer/PlayerContainer';
 
-export default class SearchPlayerForm extends Component {
+export class SearchPlayerForm extends Component {
   constructor() {
     super();
     this.state = {
@@ -102,4 +102,6 @@ export default class SearchPlayerForm extends Component {
       </>
     )
   }
-}
+};
+
+export default SearchPlayerForm;
