@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import './TopPlayersForm.css';
 import Header from '../Header/Header';
 import { fetchTop25 } from '../../apiCalls';
-import TopPlayersContainer from '../TopPlayersContainer/TopPlayersContainer'
+import TopPlayersContainer from '../TopPlayersContainer/TopPlayersContainer';
+import { statsObject } from '../../stats';
 
 export class TopPlayersForm extends Component {
   constructor() {
@@ -62,7 +63,7 @@ export class TopPlayersForm extends Component {
         <div className='top-container'>
         <section className='stat-explanation'>
           <h1>{bigStat}:</h1>
-          <p>This is an explantaion of the stat.</p>
+        <p>{statsObject[this.state.stat]}</p>
         </section>
       <TopPlayersContainer 
         players={this.state.players}
