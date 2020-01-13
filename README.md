@@ -42,3 +42,7 @@ Very soon there will be functionality for a user to save favorite players to the
 #### Signing In To Dashboard
 
 ![2020-01-13 15 52 47](https://user-images.githubusercontent.com/52764657/72298977-cfb5be00-361c-11ea-909f-56b182433b11.gif)
+
+#### Searching Players
+
+![2020-01-13 15 54 58](https://user-images.githubusercontent.com/52764657/72299096-199ea400-361d-11ea-95a3-3b3ce2f4b793.gif)
