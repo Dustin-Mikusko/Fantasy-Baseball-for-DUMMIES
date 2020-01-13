@@ -23,10 +23,27 @@ describe('Landing', () => {
   //   expect(getItem).toHaveBeenCalledWith('users');
   // });
 
+  it('should call setUsers when component mounts', () => {
+    expect(mockSetUsers).toHaveBeenCalled();
+  });
+
   describe('mapDispatchToProps', () => {
-    it('should call setUsers when component mounts', () => {
-      expect(mockSetUsers).toHaveBeenCalled();
+    it('should call dispatch with the setUsers action when setUsers is called', () => {
+      const mockDispatch = jest.fn();
+      const mockUsers = [
+        {
+          name: 'Greg',
+          email: 'greg@turing.io',
+          password: 'abc123',
+          favoritePlayers: []
+        }
+      ]
+      const actionToDispatch= setUsers(mockUsers);
+      const mappedProps = mapDispatchToProps(mockDispatch);
+
+      mappedProps.setUsers(mockUsers);
+
+      expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
     })
   })
-
 })

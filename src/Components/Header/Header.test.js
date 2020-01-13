@@ -66,7 +66,7 @@ describe('Header', () => {
       const actionToDispatch = signOut();
 
       const mappedProps = mapDispatchToProps(mockDispatch);
-      wrapper.find('.sign-out').simulate('click');
+      mappedProps.signOut();
 
       expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
     })
