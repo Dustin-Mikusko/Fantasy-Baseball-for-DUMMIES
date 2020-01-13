@@ -1,3 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SignUp should match the snapshot with no errors 1`] = `undefined`;
+exports[`SignUp should match the snapshot 1`] = `ShallowWrapper {}`;
+
+exports[`SignUp should match the snapshot with input errors 1`] = `ShallowWrapper {}`;
