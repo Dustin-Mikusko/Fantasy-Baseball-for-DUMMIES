@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { SignUp, mapDispatchToProps } from './SignUp';
+import { SignUp, mapStateToProps, mapDispatchToProps } from './SignUp';
 import { setUsers, setCurrentUser } from '../../Actions';
 
 describe('SignUp', () => {
@@ -268,4 +268,55 @@ describe('SignUp', () => {
       expect(wrapper.state('passwordMatchMessage')).toEqual('');
     });
   });
+
+  describe('mapDispatchToProps', () => {
+    let mockDispatch;
+
+    beforeEach(() => {
+      mockDispatch = jest.fn()
+    });
+
+    it('should call dispatch with a setCurrentUser action when submitUser is called', () => {
+      const actionToDispatch = setCurrentUser(currentUser);
+      const mappedProps = mapDispatchToProps(mockDispatch);
+
+      mappedProps.setCurrentUser(currentUser);
+
+      expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
+    });
+
+    it('should call dispatch with a setUsers action when submitUser is called', () => {
+      const actionToDispatch = setUsers(users);
+      const mappedProps = mapDispatchToProps(mockDispatch);
+
+      mappedProps.setUsers(users);
+
+      expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
+    })
+  });
+
+  describe('mapStateToProps', () => {
+    it('should return an array of users and a user object', () => {
+      const mockUsers = [
+        {
+          name: 'Greg',
+          email: 'greg@turing.io',
+          password: 'abc123',
+          favoritePlayers: []
+        }
+      ]
+      const mockState = {
+        fake: 'fake',
+        userDatabase: mockUsers,
+        currentUser: currentUser
+      };
+      const expected = {
+        users: mockUsers,
+        currentUser: currentUser
+      };
+      const mappedProps = mapStateToProps(mockState);
+
+      expect(mappedProps).toEqual(expected);
+    });
+  })
 });
